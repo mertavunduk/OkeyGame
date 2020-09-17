@@ -163,6 +163,8 @@ public class DigitoyOkey {
 						tempPears[counter++] = playersHand[j];
 						tempPears[counter++] = playersHand[k];
 					}
+					if (!IsContain(tempPears, playersHand[k]))
+						tempPears[counter++] = playersHand[k];
 				}
 			}
 			j++;
@@ -191,6 +193,10 @@ public class DigitoyOkey {
 						}
 						j++;
 					}
+				}
+				else {
+				j++;
+				k++;
 				}
 			}
 			j = 2;
