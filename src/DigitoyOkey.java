@@ -218,8 +218,6 @@ public class DigitoyOkey {
 		
 		StoreSameColorTiles(playersHand, tempPears, okey, counter);
 		CalculateRemainingTiles(tempPears, remainingTiles);
-		System.out.print(player + " ");
-		PrintArray(tempPears, "tempPears");
 	}
 
 	public static int ChooseOkey(Integer[] tiles) {
@@ -332,24 +330,16 @@ public class DigitoyOkey {
 		forthPlayer = new int[14];
 		CreateShuffleTiles(tiles);
 		int okey = ChooseOkey(tiles);
-		System.out.println("okey = " + okey);
 		DistributeTilesToPlayers(tiles, firstPlayer, secondPlayer, thirdPlayer, forthPlayer);
 		sort(firstPlayer, 0, firstPlayer.length - 1);
 		sort(secondPlayer, 0, secondPlayer.length - 1);
 		sort(thirdPlayer, 0, thirdPlayer.length - 1);
 		sort(forthPlayer, 0, forthPlayer.length - 1);
-		PrintArray(firstPlayer, "FirstPlayer");
-		PrintArray(secondPlayer, "SecondPlayer");
-		PrintArray(thirdPlayer, "ThirdPlayer");
-		PrintArray(forthPlayer, "ForthPlayer");
 		CountRemainingTiles(firstPlayer, remainingTiles, 0, okey);
 		CountRemainingTiles(secondPlayer, remainingTiles, 1, okey);
 		CountRemainingTiles(thirdPlayer, remainingTiles, 2, okey);
 		CountRemainingTiles(forthPlayer, remainingTiles, 3, okey);
 		String possibleWinner = FindPossibleWinner(remainingTiles, firstPlayer, secondPlayer, thirdPlayer, forthPlayer);
-		System.out.print("Remaining Tiles : ");
-		for (int i = 0; i < 4; i++)
-			System.out.print(remainingTiles[i] + "-");
 		System.out.println();
 		System.out.println(possibleWinner);
 	}
