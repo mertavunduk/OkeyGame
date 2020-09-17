@@ -106,21 +106,18 @@ public class DigitoyOkey {
 		{
 			for (int j = i + 1; j < playersHand.length; j++)
 			{
-				if (((playersHand[i] + 1) % 13) == (playersHand[j] + 1) % 13)
+				if ((playersHand[i] % 13) == (playersHand[j] % 13))
 					for(int k = j + 1; k < playersHand.length; k++)
 					{
-						if(playersHand[i] != okey && playersHand[j] != okey && playersHand[k] != okey)
-							
-							if((playersHand[k] % 13) == (playersHand[j] % 13))
-								
-								if (!IsContain(tempPears, playersHand[i]) && !IsContain(tempPears, playersHand[j]) && !IsContain(tempPears, playersHand[k]))
-									
-									if (playersHand[i] != playersHand[j] && playersHand[i] != playersHand[k] && playersHand[j] != playersHand[k])
-									{
+						if((playersHand[i] != okey && playersHand[j] != okey && playersHand[k] != okey) &&
+							(playersHand[k] % 13) == (playersHand[j] % 13) &&
+							(!IsContain(tempPears, playersHand[i]) && !IsContain(tempPears, playersHand[j]) && !IsContain(tempPears, playersHand[k])) &&
+							(playersHand[i] != playersHand[j] && playersHand[i] != playersHand[k] && playersHand[j] != playersHand[k]))
+						{
 										tempPears[counter++] = playersHand[i];
 										tempPears[counter++] = playersHand[j];
 										tempPears[counter++] = playersHand[k];
-									}
+						}
 					}
 			}
 		}
@@ -330,6 +327,7 @@ public class DigitoyOkey {
 		forthPlayer = new int[14];
 		CreateShuffleTiles(tiles);
 		int okey = ChooseOkey(tiles);
+		System.out.println("Okey : " + okey);
 		DistributeTilesToPlayers(tiles, firstPlayer, secondPlayer, thirdPlayer, forthPlayer);
 		sort(firstPlayer, 0, firstPlayer.length - 1);
 		sort(secondPlayer, 0, secondPlayer.length - 1);
@@ -343,5 +341,4 @@ public class DigitoyOkey {
 		System.out.println();
 		System.out.println(possibleWinner);
 	}
-
 }
