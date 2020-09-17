@@ -100,7 +100,7 @@ public class DigitoyOkey {
 		return false;
 	}
 	
-	public static void CountSameColorTiles(int[] playersHand, int[] tempPears, int okey, int counter)
+	public static void StoreSameColorTiles(int[] playersHand, int[] tempPears, int okey, int counter)
 	{
 		for (int i = 0; i < playersHand.length; i++)
 		{
@@ -210,7 +210,7 @@ public class DigitoyOkey {
 				tempPears[counter++] = okey;
 		}
 		
-		CountSameColorTiles(playersHand, tempPears, okey, counter);
+		StoreSameColorTiles(playersHand, tempPears, okey, counter);
 		CalculateRemainingTiles(tempPears, remainingTiles);
 		System.out.print(player + " ");
 		PrintArray(tempPears, "tempPears");
